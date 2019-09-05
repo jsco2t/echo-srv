@@ -3,12 +3,13 @@ FROM node:8.16.1-alpine
 MAINTAINER jsco2t
 
 # dependencies
-run apk --no-cache add openssl
+RUN apk --no-cache add openssl
 
 # copy code
 WORKDIR /opt
 ADD src/utilities/create-dev-cert.sh /opt
-add src/server/server.js /opt
+ADD src/server/echo.js /opt
+ADD src/server/server.js /opt
 
 # create certs
 RUN sh create-dev-cert.sh
