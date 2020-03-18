@@ -1,4 +1,4 @@
-FROM node:8.16.1-alpine
+FROM node:13.10.1-alpine3.11
 LABEL "author"="jsco2t"
 
 # environment
