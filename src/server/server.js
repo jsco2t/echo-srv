@@ -1,5 +1,5 @@
 "use strict";
-
+require('dotenv').config();
 var https = require('https');
 var http = require('http');
 var httpsPort = 443;
@@ -8,8 +8,8 @@ var space = '    ';
 var echo = require('./echo.js');
 
 const sslOpts = {
-    key: fileSys.readFileSync('privatekey.pem'),
-    cert: fileSys.readFileSync('fullchain.pem'),
+    key: fileSys.readFileSync(process.env.CERT_PATH + 'privatekey.pem'),
+    cert: fileSys.readFileSync(process.env.CERT_PATH + 'fullchain.pem'),
 };
 
 http.createServer(serverHandler).listen(
