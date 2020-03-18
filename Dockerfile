@@ -1,6 +1,9 @@
 FROM node:8.16.1-alpine
 LABEL "author"="jsco2t"
 
+# environment
+ENV CERT_PATH './' 
+
 # dependencies
 RUN apk --no-cache add openssl
 
@@ -15,7 +18,7 @@ RUN sh create-dev-cert.sh
 
 # run the server
 EXPOSE 80 443
-CMD node server.js
+CMD npm start
 
 
 # building:
