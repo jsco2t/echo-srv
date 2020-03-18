@@ -9,9 +9,10 @@ RUN apk --no-cache add openssl
 
 # copy code
 WORKDIR /opt
-ADD src/utilities/create-dev-cert.sh /opt
-ADD src/server/echo.js /opt
-ADD src/server/server.js /opt
+ADD src/utilities/*.sh /opt/
+ADD src/server/*.js /opt/
+ADD src/server/*.json /opt/
+RUN npm install
 
 # create certs
 RUN sh create-dev-cert.sh
@@ -27,6 +28,7 @@ CMD npm start
 # running:
 #   docker run -d --rm -p 8080:80 -p 8443:443 jsco2t/echo-srv:0.01
 #   docker run -it --rm -p 8080:80 -p 8443:443 jsco2t/echo-srv:0.01 <--- interactive to see exceptions
+#   docker run -it --rm -p 8080:80 -p 8443:443 -e CERT_PATH='/foo/bar/' jsco2t/echo-srv:0.01 <---- specify alternate cert path
 #
 # cleanup:
 #   Take the container id reported from the above run request and use it for `docker stop`:
