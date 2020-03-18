@@ -6,19 +6,19 @@ exports.init = function (req) {
     this.httpVersion = req.httpVersion;
     this.httpMethod = req.method;
     this.requestHost = req.headers['host'];
+    this.requestPort = req.socket.localPort;
     // if (this.requestHost == '') {
     //     this.requestHost = req.host;
     // }
     this.requestUrl = req.url;
     this.requestHeaders = req.headers;
     this.outputContentType = 'text/plain';
-
     this.outputJson = false;
     if (this.requestUrl.includes('out=json')) {
         this.outputJson = true;
         this.outputContentType = 'application/json';
     }
-    
+
     if (this.requestUrl.includes('opt=basic') === false) {
 
         var networkInterfaces = {};
@@ -76,7 +76,8 @@ exports.init = function (req) {
                 result += `${space}http method:\t${this.httpMethod}\n`;
                 result += `${space}host:\t\t${this.requestHost}\n`;
                 result += `${space}url:\t\t${this.requestUrl}\n`;
-                
+                result += `${space}request port: \t${this.requestPort}\n`
+
                 // headers
                 result += '\n';
                 result += `${space}headers: \n`;

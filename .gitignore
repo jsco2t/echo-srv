@@ -59,3 +59,17 @@ typings/
 
 # next.js build output
 .next
+
+############################################
+# user added items:
+
+# ssl
+*.pem
+*.srl
+
+# don't add .env / environment files
+.env
+
+# generated and test/local files:
+*.local.*
+*.generated.*

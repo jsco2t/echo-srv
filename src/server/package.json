@@ -1,0 +1,11 @@
+{
+    "name": "echo-srv",
+    "version": "1.0.0",
+    "description": "Utility echo server reporting common http request details.",
+    "main": "server.js",
+    "author": "Jason Scott",
+    "license": "MIT",
+    "dependencies": {
+        "dotenv": "^8.2.0"
+    }
+}

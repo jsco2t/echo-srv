@@ -1,6 +1,5 @@
 FROM node:8.16.1-alpine
-
-MAINTAINER jsco2t
+LABEL "author"="jsco2t"
 
 # dependencies
 RUN apk --no-cache add openssl
