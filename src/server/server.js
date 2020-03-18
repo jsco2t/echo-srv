@@ -4,7 +4,6 @@ var https = require('https');
 var http = require('http');
 var httpsPort = 443;
 var fileSys = require('fs');
-var space = '    ';
 var echo = require('./echo.js');
 var sslKeyPath = process.env.CERT_PATH + 'privatekey.pem';
 var sslCertPath = process.env.CERT_PATH + 'fullchain.pem';

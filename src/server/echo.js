@@ -7,9 +7,6 @@ exports.init = function (req) {
     this.httpMethod = req.method;
     this.requestHost = req.headers['host'];
     this.requestPort = req.socket.localPort;
-    // if (this.requestHost == '') {
-    //     this.requestHost = req.host;
-    // }
     this.requestUrl = req.url;
     this.requestHeaders = req.headers;
     this.outputContentType = 'text/plain';
